@@ -30,10 +30,11 @@ services:
     build: .
     container_name: nest_container
     restart: always
-    command: npm run start:dev
+    command: sh /usr/src/app/entrypoint.sh
+    env_file:
+      - .env
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - "3001:3001"
     depends_on:
